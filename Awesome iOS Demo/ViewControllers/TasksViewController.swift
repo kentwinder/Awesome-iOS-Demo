@@ -75,7 +75,7 @@ class TasksViewController: BaseViewController {
     }
 }
 
-extension TasksViewController: UITableViewDataSource, UITableViewDelegate {
+extension TasksViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -90,7 +90,9 @@ extension TasksViewController: UITableViewDataSource, UITableViewDelegate {
         cell.delegate = self
         return cell
     }
-    
+}
+
+extension TasksViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
