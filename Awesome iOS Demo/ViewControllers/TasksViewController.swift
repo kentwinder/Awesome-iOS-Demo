@@ -119,6 +119,12 @@ extension TasksViewController: TaskTableViewCellDelegate {
         })
         optionMenu.addAction(cancelAction)
         
+        if (UI_USER_INTERFACE_IDIOM() == .pad){
+            optionMenu.popoverPresentationController?.sourceView = view
+            optionMenu.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection()
+            optionMenu.popoverPresentationController?.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+        }
+        
         present(optionMenu, animated: true, completion: nil)
     }
     
