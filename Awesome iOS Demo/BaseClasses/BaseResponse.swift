@@ -10,4 +10,5 @@ import Foundation
 
 class BaseResponse: NSObject, Decodable {
     var resultCode: Int?
+    var message: String?
 }

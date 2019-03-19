@@ -30,6 +30,8 @@ public class APIManager {
                         if let object = resultObj as? BaseResponse {
                             if object.resultCode == 200 {
                                 completion(resultObj)
+                            } else if let message = object.message {
+                                failure(message)
                             } else {
                                 failure("API is unavailable at the moment")
                             }
@@ -45,13 +47,5 @@ public class APIManager {
                     break
                 }
             })
-    }
-    
-    static func validate(statusCode code: Int) -> Bool {
-        if code != 200 {
-            return false
-        }
-        
-        return true
     }
 }
